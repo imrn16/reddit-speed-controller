@@ -1,0 +1,29 @@
+{
+	"manifest_version": 3,
+	"name": "Reddit Playback Speed",
+	"version": "1.0",
+	"description": "Adjust the playback speed of Reddit videos, with keyboard shortcuts!",
+	"permissions": ["activeTab", "scripting"],
+	"content_scripts": [
+		{
+			"matches": ["*://www.reddit.com/*"],
+			//"matches": ["<all_urls>"],
+            "css": ["dist/assets/index.css"],
+			"js": ["content.js"]
+		}
+	],
+	"background": {
+		"service_worker": "public/background.js"
+	  },
+	"web_accessible_resources": [
+		{
+			"resources": ["dist/assets/index.js", "dist/assets/index.css"],
+			//"matches": ["<all_urls>"],
+			"matches": ["*://www.reddit.com/*"]
+		}
+	]
+	// ,
+	// "icons": {
+	//   "128": "icon-128.png"
+	// }
+}
